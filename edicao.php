@@ -10,8 +10,8 @@
     <div id="container">
         <!-- menu  -->
         <div id="menu">
-            <a href="cadastro.html">Cadastrar Usuário</a>
-            <a href="index.html">Buscar Usuário</a>
+            <a href="cadastro.php">Cadastrar Usuário</a>
+            <a href="index.php">Buscar Usuário</a>
         </div>
         <!-- formulario de cadastro -->
         <form action="">

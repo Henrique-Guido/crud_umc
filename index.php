@@ -1,3 +1,4 @@
+<?php include('conexao.php') ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,8 +12,8 @@
     <div id="container">
         <!-- menu  -->
         <div id="menu">
-            <a href="cadastro.html">Cadastrar Usuário</a>
-            <a href="index.html">Buscar Usuário</a>
+            <a href="cadastro.php">Cadastrar Usuário</a>
+            <a href="index.php">Buscar Usuário</a>
         </div>
         <!-- barra de pesquisa -->
         <div id="pesquisa">
