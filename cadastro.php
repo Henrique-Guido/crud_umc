@@ -14,7 +14,7 @@
              <a href="index.php">Buscar Usuário</a>
         </div>
         <!-- formulario de cadastro -->
-        <form action="cadastrar.php" method="post">
+        <form action="insert.php" method="post">
             <h2>Cadastro</h2>
             <div class="campo">
                 <label for="nome">Nome:</label>

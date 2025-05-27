@@ -1,13 +1,11 @@
 <?php
 $server="localhost";
 $user="root";
-$password="";
+$password="root";
 $dbname="crud_umc";
 
 $conn= new mysqli($server, $user, $password, $dbname);
+
 if ($conn->connect_error){
-    echo "Conexão Falhou";
+    echo "Erro ao conectar com banco de dados: " . $conn->connect_error;
 }
-
-
-?>

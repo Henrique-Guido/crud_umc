@@ -14,7 +14,7 @@
             <a href="index.html">Buscar Usuário</a>
         </div>
         <div class="container-registro">
-            <h4>Nome do usuário</h4>                        <!-- dentro de value vai o valor de $_POST -->
+            <h4><?= $res ?></h4>                        <!-- dentro de value vai o valor de $_POST -->
             <div class="caixa-info">
                 <div class="caixa-1">
                     <p>Lorem ipsum dolor sit.</p>           <!-- dentro de value vai o valor de $_POST -->
