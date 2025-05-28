@@ -1,3 +1,30 @@
+<?php
+    include('conexao.php');
+
+    // validação para atribuir valores apenas se o formulário for preenchido
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $nome = $_POST['nome'] ?? null;
+        $data_nasc = $_POST['data_nasc'] ?? null;
+        $endereco = $_POST['endereco'] ?? null;
+        $telefone = $_POST['telefone'] ?? null;
+        $est_civil = $_POST['est_civil'] ?? null;
+        $nome_mae = $_POST['nome_mae'] ?? null;
+        $nome_pai = $_POST['nome_pai'] ?? null;
+        $rg_cpf = $_POST['rg_cpf'] ?? null;
+        $tit_eleitor = $_POST['tit_eleitor'] ?? null;
+    
+        $stmt = $conn->prepare("INSERT INTO registros 
+            (nome, data_nasc, endereco, telefone, est_civil, nome_mae, nome_pai, rg_cpf, tit_eleitor)
+        VALUES (?,?,?,?,?,?,?,?,?)");
+
+        $stmt->bind_param("sssssssss", $nome, $data_nasc, $endereco, $telefone, $est_civil, $nome_mae, $nome_pai, $rg_cpf, $tit_eleitor);
+        $stmt->execute();
+        
+        header('index.php');
+    
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,15 +41,15 @@
              <a href="index.php">Buscar Usuário</a>
         </div>
         <!-- formulario de cadastro -->
-        <form action="insert.php" method="post">
+        <form method="post">
             <h2>Cadastro</h2>
             <div class="campo">
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome">
             </div>
             <div class="campo">
-                <label for="dataNasc">Data de Nascimento:</label>
-                <input type="date" name="data_nascimento">
+                <label for="data_nasc">Data de Nascimento:</label>
+                <input type="date" name="data_nasc">
             </div>
             <div class="campo">
                 <label for="endereco">Endereço:</label>
@@ -33,8 +60,8 @@
                 <input type="tel" placeholder="(99) 99999-9999" name="telefone">
             </div>
             <div class="campo">
-                <label for="estadocivil">Estado Civil:</label>
-                <select name="estado_civil" id="">
+                <label for="est_civil">Estado Civil:</label>
+                <select name="est_civil" id="est_civil">
                     <option disabled selected>Estado Civil:</option>
                     <option value="solteiro">Solteiro(a)</option>
                     <option value="casado">Casado(a)</option>
@@ -43,11 +70,11 @@
                 </select>
             </div>
             <div class="campo">
-                <label for="nomedamae">Nome da Mãe:</label>
+                <label for="nome_mae">Nome da Mãe:</label>
                 <input type="text" name="nome_mae">
             </div>
             <div class="campo">
-                <label for="nomedopai">Nome do Pai:</label>
+                <label for="nome_pai">Nome do Pai:</label>
                 <input type="text" name="nome_pai">
             </div>
             <div class="campo">
@@ -56,7 +83,7 @@
             </div>
             <div class="campo">
                 <label for="titulodeeleitor">Titulo de Eleitor:</label>
-                <input type="text" maxlength="12" name="titulo_eleitor">
+                <input type="text" maxlength="12" name="tit_eleitor">
             </div>
             <button class="boton-elegante">Cadastrar</button>
         </form>

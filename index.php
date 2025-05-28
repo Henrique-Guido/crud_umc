@@ -1,3 +1,11 @@
+<?php
+    include('conexao.php');
+    //$busca = $_GET['busca'] ?? null;
+
+    //echo $busca;
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

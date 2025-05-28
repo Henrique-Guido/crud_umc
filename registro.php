@@ -1,3 +1,14 @@
+<?php
+    include('conexao.php');
+    $busca = $_GET['busca'] ?? null;
+
+    if($busca) {
+
+    $sql = "SELECT * FROM registros WHERE nome LIKE '$busca'";
+    $result = $conn->query($sql);
+    $registro = $result->fetch_assoc();
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,30 +21,29 @@
     <div id="container">
         <!-- menu  -->
         <div id="menu">
-            <a href="cadastro.html">Cadastrar Usuário</a>
-            <a href="index.html">Buscar Usuário</a>
+            <a href="cadastro.php">Cadastrar Usuário</a>
+            <a href="index.php">Buscar Usuário</a>
         </div>
         <div class="container-registro">
-            <h4><?= $res ?></h4>                        <!-- dentro de value vai o valor de $_POST -->
+            <h4><?= $registro['nome'] ?></h4>                  
             <div class="caixa-info">
                 <div class="caixa-1">
-                    <p>Lorem ipsum dolor sit.</p>           <!-- dentro de value vai o valor de $_POST -->
-                    <p>Lorem ipsum dolor sit.</p>           <!-- dentro de value vai o valor de $_POST -->
-                    <p>Lorem ipsum dolor sit.</p>           <!-- dentro de value vai o valor de $_POST -->
-                    <p>Lorem ipsum dolor sit.</p>           <!-- dentro de value vai o valor de $_POST -->
+                    <p>Endereço: <?= $registro['endereco'] ?></p>     
+                    <p>Telefone: <?= $registro['telefone'] ?></p>     
+                    <p>Estado civil: <?= $registro['est_civil'] ?></p>     
+                    <p>Nome da mãe: <?= $registro['nome_mae'] ?></p>     
                 </div>
                 <div class="caixa-2">
-                    <p>Lorem ipsum dolor sit amet.</p>      <!-- dentro de value vai o valor de $_POST -->
-                    <p>Lorem ipsum dolor sit.</p>           <!-- dentro de value vai o valor de $_POST -->
-                    <p>Lorem ipsum dolor sit.</p>           <!-- dentro de value vai o valor de $_POST -->
-                    <p>Lorem ipsum dolor sit.</p>           <!-- dentro de value vai o valor de $_POST -->
+                    <p>Nome do pai: <?= $registro['nome_pai'] ?></p>
+                    <p>RG/CPF: <?= $registro['rg_cpf'] ?></p>     
+                    <p>Título de eleitor: <?= $registro['tit_eleitor'] ?></p>      
                 </div>
             </div>
             <div class="caixa-btn">
-                <a href="index.html" id="voltar-btn">Voltar</a>
+                <a href="index.php" id="voltar-btn">Voltar</a>
                 <div>
-                    <a href="edicao.html" id="editar-btn">Editar</a>
-                    <a href="excluir.html" id="excluir-btn">Excluir</a>      <!-- manda para uma página php com o código para deletar do banco -->
+                    <a href="edicao.php" id="editar-btn">Editar</a>
+                    <a href="excluir.php" id="excluir-btn">Excluir</a>
                 </div>
             </div>
         </div>
