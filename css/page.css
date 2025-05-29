@@ -94,10 +94,11 @@
       .texto2{
         display: flex;
         justify-content: flex-start;
-        margin-right: 100px;
+        margin-right:auto;
         flex-wrap: wrap;
         color: #ffffff;
-        padding: 30px;
+        padding: 75px;
         gap: 45px;
         font-size: 20px;
       }
+      
