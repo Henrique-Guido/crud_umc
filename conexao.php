@@ -1,7 +1,7 @@
 <?php
 $server="localhost";
-$user="";
-$password="";
+$user="";               // informações do seu db
+$password="";           // informações do seu db
 $dbname="crud_umc";
 
 $conn= new mysqli($server, $user, $password, $dbname);

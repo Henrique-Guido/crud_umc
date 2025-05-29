@@ -1,10 +1,6 @@
 <?php
     include('conexao.php');
-    //$busca = $_GET['busca'] ?? null;
-
-    //echo $busca;
-
-
+    $msg = $_GET['msg'] ?? null;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,8 +10,14 @@
     <title>Receita Federal</title>
     <!-- link css -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/msg-box.css">
 </head>
 <body>
+    <?php if($msg === 'sucesso'): ?>
+    <div id="msg-box">
+        <p>Usuário cadastrado com sucesso!</p>
+    </div>
+    <?php endif; ?>
     <div id="container">
         <!-- menu  -->
         <div id="menu">

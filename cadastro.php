@@ -20,9 +20,10 @@
 
         $stmt->bind_param("sssssssss", $nome, $data_nasc, $endereco, $telefone, $est_civil, $nome_mae, $nome_pai, $rg_cpf, $tit_eleitor);
         $stmt->execute();
-        
-        header('index.php');
     
+        header("Location: index.php?msg=sucesso");
+
+
     }
 ?>
 <!DOCTYPE html>
