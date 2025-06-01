@@ -17,6 +17,10 @@
     <div id="msg-box">
         <p>Usuário cadastrado com sucesso!</p>
     </div>
+    <?php elseif($msg === 'excluido'): ?>
+    <div id="msg-box">
+        <p>Usuário excluído com sucesso!</p>
+    </div>
     <?php endif; ?>
     <div id="container">
         <!-- menu  -->

@@ -60,6 +60,10 @@
     justify-content: space-between;
 }
 
+button {
+    cursor: pointer;
+}
+
 #editar-btn {
     text-decoration: none;
     color: #fff;
@@ -97,8 +101,14 @@
     border-radius: 15px;
     font-weight: bold;
     transition: .5s;
+    width: fit-content;
 }
 
 #voltar-btn:hover {
     background-color: #999;
+}
+
+#texto-erro {
+    color:  rgb(200, 24, 24);;
+    font-weight: bold;
 }
