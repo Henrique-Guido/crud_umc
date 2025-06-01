@@ -1,12 +1,20 @@
 <?php
     include('conexao.php');
     $busca = $_GET['busca'] ?? null;
+    $registro = null;
+    $erro = null;
 
     if($busca) {
+        $stmt = $conn->prepare("SELECT * FROM registros WHERE nome LIKE ?");
+        $busca_param = "%$busca%";
+        $stmt->bind_param("s", $busca_param);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $registro = $result->fetch_assoc();
 
-    $sql = "SELECT * FROM registros WHERE nome LIKE '$busca'";
-    $result = $conn->query($sql);
-    $registro = $result->fetch_assoc();
+        if(!$registro){
+            $erro = "Nenhum registro encontrado.";
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -25,6 +33,11 @@
             <a href="index.php">Buscar Usuário</a>
         </div>
         <div class="container-registro">
+            <?php if ($erro): ?>
+                <p style="color: red; font-weight: bold;"><?= $erro ?></p>
+                 <a href="index.php" id="voltar-btn">Voltar</a>
+            <?php elseif ($registro): ?>
+
             <h4><?= $registro['nome'] ?></h4>                  
             <div class="caixa-info">
                 <div class="caixa-1">
@@ -43,9 +56,13 @@
                 <a href="index.php" id="voltar-btn">Voltar</a>
                 <div>
                     <a href="edicao.php" id="editar-btn">Editar</a>
-                    <a href="excluir.php" id="excluir-btn">Excluir</a>
+                    <form action='excluir.php' method='post'>
+                        <input type='hidden' name='id' value="<?= htmlspecialchars($registro['id']) ?>">
+                        <button type="submit" id="excluir-btn">Excluir</button>
+                    </form>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </div>
 </body>
