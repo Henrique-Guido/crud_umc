@@ -34,7 +34,7 @@
         </div>
         <div class="container-registro">
             <?php if ($erro): ?>
-                <p style="color: red; font-weight: bold;"><?= $erro ?></p>
+                <p id="texto-erro"><?= $erro ?></p>
                  <a href="index.php" id="voltar-btn">Voltar</a>
             <?php elseif ($registro): ?>
 
@@ -55,10 +55,10 @@
             <div class="caixa-btn">
                 <a href="index.php" id="voltar-btn">Voltar</a>
                 <div>
-                    <a href="edicao.php" id="editar-btn">Editar</a>
                     <form action='excluir.php' method='post'>
                         <input type='hidden' name='id' value="<?= htmlspecialchars($registro['id']) ?>">
                         <button type="submit" id="excluir-btn">Excluir</button>
+                        <button href="edicao.php" id="editar-btn">Editar</button>
                     </form>
                 </div>
             </div>
