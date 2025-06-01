@@ -26,7 +26,7 @@
             </div>
             <div class="campo">
                 <label for="endereco">Endereço:</label>
-                <input type="password">                                       <!-- dentro de value vai o valor de $_POST -->
+                <input type="text">                                       <!-- dentro de value vai o valor de $_POST -->
             </div>
             <div class="campo">
                 <label for="telefone">Telefone:</label>
