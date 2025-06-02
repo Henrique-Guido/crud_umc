@@ -1,7 +1,7 @@
 <?php
-if (isset($_POST['id'])) {
+if (isset($_GET['id'])) {
     include('conexao.php');
-    $id = $_POST['id'];
+    $id = $_GET['id'];
 
     $stmt = $conn->prepare("DELETE FROM registros WHERE id = ?");
     

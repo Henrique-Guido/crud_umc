@@ -32,7 +32,7 @@
         <div id="pesquisa">
             <h1><i class="fa-solid fa-magnifying-glass"></i>buscar usuários</h1>
             <form action="registro.php" method="get">
-                <input type="text" name="busca" placeholder="Digite o nome do usuário">
+                <input type="text" name="busca" placeholder="Digite o nome do usuário" required>
             </form>
         </div>
     </div>

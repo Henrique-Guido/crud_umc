@@ -1,6 +1,8 @@
 <?php
     include('conexao.php');
 
+    $msg = $_GET['id'];
+
     // validação para atribuir valores apenas se o formulário for preenchido
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -22,8 +24,6 @@
         $stmt->execute();
     
         header("Location: index.php?msg=sucesso");
-
-
     }
 ?>
 <!DOCTYPE html>

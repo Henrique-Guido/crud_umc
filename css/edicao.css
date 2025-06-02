@@ -66,6 +66,7 @@ h2 {
 }
 
 .atualizar-btn {
+    background-color: #000;
     text-decoration: none;
     color: #fff;
     border: 1px solid white;
