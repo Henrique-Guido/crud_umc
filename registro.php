@@ -6,9 +6,7 @@
     $erro = null;
 
     if($busca) {
-        $stmt = $conn->prepare("SELECT * FROM registros WHERE nome LIKE ?");
-        $busca_param = "$busca";
-        $stmt->bind_param("s", $busca_param);
+        $stmt = $conn->prepare("SELECT * FROM registros WHERE nome LIKE '%{$busca}%' LIMIT 1");
         $stmt->execute();
         $result = $stmt->get_result();
         $registro = $result->fetch_assoc();
