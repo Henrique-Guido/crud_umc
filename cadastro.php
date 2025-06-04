@@ -1,7 +1,7 @@
 <?php
     include('conexao.php');
 
-    $msg = $_GET['id'];
+    $msg = $_GET['id'] ?? null;
 
     // validação para atribuir valores apenas se o formulário for preenchido
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
